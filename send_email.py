@@ -10,7 +10,7 @@ class Mail(object):
         self.address = address  #  收件人地址
         self.text_data = text_data  #  正文内容(连接)
         self.my_sender = '1654919279@qq.com'  # 发件人邮箱账号
-        self.my_pass = 'ghfersxnvnxpedcb'  # 发件人邮箱密码(当时申请smtp给的口令)
+        self.my_pass = '############################'  # 发件人邮箱密码(当时申请smtp给的口令)
 
     def send(self,):
         ret = True
