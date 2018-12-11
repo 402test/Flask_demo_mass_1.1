@@ -1,0 +1,77 @@
+{% extends 'index.html' %}
+
+{% block jss %}
+  <script>
+
+            {%  if  msg %}
+               if (confirm('{{msg}},是否回到主页')){
+                     window.location.href = "/";
+               }else{
+                     window.location.href = "/register";
+               }
+
+
+            {% endif %}
+
+
+            {%  if  img_error %}
+
+            alert('{{img_error}}')
+
+            {% endif %}
+            </script>
+
+{% endblock %}
+
+{% block mod %}
+
+<div class="col-md-4 col-sm-6 col-md-offset-4">
+
+
+<form lass="form-inline" action="/register" method="POST">
+  <div class="form-group">
+    <label for="exampleInputEmail1">邮箱</label>
+    <input type="email"  name = 'email' class="form-control" id="exampleInputEmail1" placeholder="Email">
+  </div>
+    <div class="form-group">
+    <label for="">昵称</label>
+    <input type="text" name = 'name' class="form-control" id="" placeholder="nickname">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">密码</label>
+    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
+  <div class="form-group" >
+    <label for="exampleInputPassword1">再次输入密码</label>
+    <input type="password" class="form-control" id="" placeholder="Password">
+  </div>
+<div  class="form-group">
+      <div class="form-group" style="width: 40%;  float:left;margin-right: 20px">
+           <label for="exampleInputPassword1">性别</label>
+  <select class="form-control" name = 'sex'>
+  <option value="1">男</option>
+  <option value="2">女</option>
+</select>
+
+      </div>
+
+     <div class="form-group" style="width: 40% ;float:left">
+         <label for="exampleInputPassword1">年龄</label>
+
+    <input type="text" name ='age' class="form-control" id="" placeholder="age">
+
+      </div>
+
+  </div>
+
+<div class="form-group">
+     <label for="">验证码</label>
+    <input type="text" class="form-control"  name="img" >
+    <img src="/code" onclick="this.src='/code?'+ Math.random()">
+  </div>
+  <button type="submit" class="btn btn-default" style="margin-top: 20px">Submit</button>
+</form>
+
+</div>
+
+{% endblock %}
